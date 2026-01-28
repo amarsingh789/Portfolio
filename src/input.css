@@ -1,0 +1,50 @@
+@import "tailwindcss";
+html, body {
+  height: 100%;
+}
+
+.container-box {
+  overflow: hidden;
+}
+.mobile-menu-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+.mobile-menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+/* 1. Hide Default Cursor */
+body, html, a, button, .cursor-pointer {
+  cursor: none !important;
+}
+
+/* 2. Jelly Cursor Style */
+#jelly-cursor {
+  width: 20px;
+  height: 20px;
+  background-color: white; /* Mix blend mode ke liye white best hai */
+  mix-blend-mode: difference; /* Magic Line: Ye background ke hisab se color badlega */
+  transform: translate(-50%, -50%); /* Center align default */
+  will-change: transform, width, height; /* Performance booster */
+}
+
+/* Mobile par hide karo
+@media (max-width: 768px) {
+  #jelly-cursor { display: none; }
+  body, html, a, button { cursor: auto !important; }
+} */
+
+@media (max-width: 1024px) {
+  /* 1. Jelly Cursor ko gayab karo */
+  #jelly-cursor {
+    display: none !important;
+  }
+
+  /* 2. Default System Cursor/Touch wapas lao */
+  body, html, a, button, .cursor-pointer {
+    cursor: auto !important;
+  }
+}
